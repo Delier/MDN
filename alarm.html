@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>alarm primose</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <button id="set-alarm">set alarm</button>
+    <div id="output"></div>
+
+    <script>
+        const output = document.querySelector("#output");
+        const button = document.querySelector("#set-alarm");
+
+        function setAlarm() {
+            window.setTimeout(() => {
+                output.textContent = "Wake up";
+            }, 1000);
+        }
+
+
+        function alarm(person ,delay) {
+            return new Promise((resolve, reject) => {
+                if (delay < 0) {
+                    throw new Error("Alarm delay must not be negative");
+                }
+                window.setTimeout(() => {
+                    resolve("wake up !!" + person);
+                }, delay);
+            })
+        }
+        button.addEventListener("click",setAlarm);
+    </script>
+</body>
+
+</html>
